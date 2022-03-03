@@ -16,14 +16,19 @@ $ docker-compose up
 
 ## Author :pen:
 
-[kazuyan](https://github.com/kazuki-komori)
+[![kazuki-komori](https://img.shields.io/github/followers/kazuki-komori?style=social)][1]
+[![@D_kazuyan](https://img.shields.io/twitter/follow/D_kazuyan?style=social)][2]
+
+[1]: https://github.com/kazuki-komori
+[2]: https://twitter.com/D_kazuyan
+
+### kazuyan
 
 If you liked this repo, please give me a star.
 
 Follow me on SNS!
 
 
-[Twitter: @D_kazuyan](https://twitter.com/D_kazuyan)
 
 ## LICENSE
 
