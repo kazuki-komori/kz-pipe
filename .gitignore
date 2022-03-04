@@ -1,2 +1,15 @@
 ## editor
 .idea
+.vscode-server
+
+## ssh
+.ssh
+
+## cache
+.cache
+
+## git
+.gitconfig
+
+## python
+*/__pycache__
