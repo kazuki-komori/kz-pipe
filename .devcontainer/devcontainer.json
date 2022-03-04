@@ -1,6 +1,5 @@
 {
   "name": "Python Project",
-  "dockerFile": "Dockerfile",
   "settings": {
       "python.pythonPath": "/usr/local/bin/python"
   },

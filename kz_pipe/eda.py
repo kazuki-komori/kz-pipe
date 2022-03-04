@@ -1,6 +1,3 @@
-import imp
-
-from numpy import number
 import pandas as pd
 from timer import Timer
 import seaborn as sns

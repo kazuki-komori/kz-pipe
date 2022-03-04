@@ -7,6 +7,7 @@
 
 ## cache
 .cache
+.bash_history
 
 ## git
 .gitconfig
