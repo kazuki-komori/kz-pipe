@@ -2,7 +2,6 @@ import pandas as pd
 from timer import Timer
 import seaborn as sns
 from matplotlib_venn import venn2
-import pandas as pd
 
 def plt_ven(_df_1: pd.Series,  _df_2: pd.Series, left_filter: any = 1, right_filter: any = 1):
   """2 つの Series からベン図を

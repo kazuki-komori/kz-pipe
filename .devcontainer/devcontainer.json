@@ -1,9 +1,12 @@
 {
   "name": "Python Project",
   "settings": {
-      "python.pythonPath": "/usr/local/bin/python"
+    "python.pythonPath": "/usr/local/bin/python"
   },
+  "dockerComposeFile": [],
   "extensions": [
-      "ms-python.python"
-  ]
+    "ms-python.python"
+  ],
+  "service": "python3",
+  "workspaceFolder": "/root"
 }
