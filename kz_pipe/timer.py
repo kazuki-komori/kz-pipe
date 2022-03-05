@@ -1,4 +1,3 @@
-from contextlib import contextmanager
 from time import time
 
 class Timer:

@@ -12,7 +12,7 @@ def plt_count(col: str, data: pd.DataFrame, title: str = "", xlab: str = ""):
       title (str, optional): title Defaults to "".
       xlab (str, optional): xlab Defaults to "".
   """
-  ax = sns.countplot(x=col ,data=data)
+  ax = sns.countplot(x=col ,data=data, order = data[col].value_counts().index)
   plt.title(title)
   plt.xlabel(xlab)
   for p in ax.patches:
