@@ -1,6 +1,6 @@
 import pandas as pd
 # import seaborn as sns
-from timer import Timer
+from .timer import Timer
 from matplotlib_venn import venn2
 
 def plt_ven(_df_1: pd.Series,  _df_2: pd.Series, left_filter: any = 1, right_filter: any = 1):
