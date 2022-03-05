@@ -43,19 +43,17 @@ def plt_count(
   if x_rotate:
     ax.set_xticklabels(ax.get_xticklabels(),rotation = 30)
   
-  
-  plt.show()
 
 
 def plt_venn(
   _df_1: pd.Series,  
   _df_2: pd.Series, 
-  ax: any,
   left_filter: any = 1,
   right_filter: any = 1,
   title: str = "",
   left_lab: str = "A",
   right_lab: str = "B",
+  ax: any = None,
   ):
   """Create Venn Diagrams from 2 Series.
 
@@ -74,7 +72,6 @@ def plt_venn(
     ax=ax
   )
   plt.title(title)
-  plt.show()
 
 
 def plt_by_age(
