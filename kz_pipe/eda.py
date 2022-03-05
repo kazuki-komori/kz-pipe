@@ -2,6 +2,7 @@ import pandas as pd
 from matplotlib_venn import venn2
 import matplotlib.pyplot as plt
 import seaborn as sns
+from .shaper import str_by_age
 
 def plt_count(col: str, data: pd.DataFrame, title: str = "", xlab: str = ""):
   """Create Count plot from DataFrame.
@@ -16,7 +17,7 @@ def plt_count(col: str, data: pd.DataFrame, title: str = "", xlab: str = ""):
   plt.title(title)
   plt.xlabel(xlab)
   for p in ax.patches:
-      ax.annotate('{:.2f}%'.format(100 * p.get_height() / len(data[col])), (p.get_x()+0.3, p.get_height()+1.5))
+    ax.annotate('{:.2f}%'.format(100 * p.get_height() / len(data[col])), (p.get_x()+0.3, p.get_height()+1.5))
   plt.show()
 
 
@@ -45,3 +46,20 @@ def plt_venn(
     set_labels=(left_lab, right_lab)
   )
   plt.title(title)
+
+
+def plt_by_age(df: pd.DataFrame, col: str, min_age: int = 0, max_age: int = 120, by: int = 5, fill: bool = False, title: str = "", xlab: str = ""):
+  """Create Count plot from Stratified by Age
+
+  Args:
+      df (pd.DataFrame): _description_
+      col (str): _description_
+      min_age (int, optional): _description_. Defaults to 0.
+      max_age (int, optional): _description_. Defaults to 120.
+      by (int, optional): _description_. Defaults to 5.
+      fill (bool, optional): _description_. Defaults to False.
+      title (str, optional): _description_. Defaults to "".
+      xlab (str, optional): _description_. Defaults to "".
+  """
+  _df = str_by_age(df, col, min_age, max_age, by, fill)
+  plt_count(col, data=_df, title=title, xlab=xlab)
