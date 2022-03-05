@@ -7,7 +7,8 @@ setup(
   author="kazuki-komori",
   install_requires=[
     "pandas",
-    "matplotlib_venn"
+    "matplotlib_venn",
+    "seaborn"
   ],
   packages=find_packages()
 )
