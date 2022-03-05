@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from .shaper import str_by_age
 
-def plt_count(col: str, data: pd.DataFrame, title: str = "", xlab: str = ""):
+def plt_count(col: str, data: pd.DataFrame, title: str = "", xlab: str = "", x_rotate: bool = False):
   """Create Count plot from DataFrame.
 
   Args:
@@ -12,12 +12,17 @@ def plt_count(col: str, data: pd.DataFrame, title: str = "", xlab: str = ""):
       data (pd.DataFrame): dataFrame
       title (str, optional): title Defaults to "".
       xlab (str, optional): xlab Defaults to "".
+      x_rotate (bool, optional): xlab Rotate Defaults to False.
   """
   ax = sns.countplot(x=col ,data=data, order = data[col].value_counts().index)
   plt.title(title)
   plt.xlabel(xlab)
   for p in ax.patches:
     ax.annotate('{:.2f}%'.format(100 * p.get_height() / len(data[col])), (p.get_x()+0.3, p.get_height()+1.5))
+  
+  if x_rotate:
+    ax.set_xticklabels(ax.get_xticklabels(),rotation = 30)
+  
   plt.show()
 
 
@@ -62,4 +67,4 @@ def plt_by_age(df: pd.DataFrame, col: str, min_age: int = 0, max_age: int = 120,
       xlab (str, optional): _description_. Defaults to "".
   """
   _df = str_by_age(df, col, min_age, max_age, by, fill)
-  plt_count(col, data=_df, title=title, xlab=xlab)
+  plt_count(col, data=_df, title=title, xlab=xlab, x_rotate=True)
