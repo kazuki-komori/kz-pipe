@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from .shaper import str_by_age
 
-def plt_count(col: str, data: pd.DataFrame, title: str = "", xlab: str = "", x_rotate: bool = False):
+def plt_count(col: str, data: pd.DataFrame, title: str = "", xlab: str = "", x_rotate: bool = False, order: bool = True):
   """Create Count plot from DataFrame.
 
   Args:
@@ -13,8 +13,14 @@ def plt_count(col: str, data: pd.DataFrame, title: str = "", xlab: str = "", x_r
       title (str, optional): title Defaults to "".
       xlab (str, optional): xlab Defaults to "".
       x_rotate (bool, optional): xlab Rotate Defaults to False.
+      order (bool, optional): order Defaults to True.
   """
-  ax = sns.countplot(x=col ,data=data, order = data[col].value_counts().index)
+  _order = None
+
+  if order:
+    _order = data[col].value_counts().index
+  
+  ax = sns.countplot(x=col ,data=data, order = _order)
   plt.title(title)
   plt.xlabel(xlab)
   for p in ax.patches:
@@ -53,7 +59,17 @@ def plt_venn(
   plt.title(title)
 
 
-def plt_by_age(df: pd.DataFrame, col: str, min_age: int = 0, max_age: int = 120, by: int = 5, fill: bool = False, title: str = "", xlab: str = ""):
+def plt_by_age(
+  df: pd.DataFrame, 
+  col: str, 
+  min_age: int = 0, 
+  max_age: int = 120, 
+  by: int = 5, 
+  fill: bool = False, 
+  title: str = "", 
+  xlab: str = "", 
+  order: bool = False
+  ):
   """Create Count plot from Stratified by Age
 
   Args:
@@ -65,6 +81,7 @@ def plt_by_age(df: pd.DataFrame, col: str, min_age: int = 0, max_age: int = 120,
       fill (bool, optional): _description_. Defaults to False.
       title (str, optional): _description_. Defaults to "".
       xlab (str, optional): _description_. Defaults to "".
+      order (bool, optional): _description_. Defaults to False.
   """
   _df = str_by_age(df, col, min_age, max_age, by, fill)
-  plt_count(col, data=_df, title=title, xlab=xlab, x_rotate=True)
+  plt_count(col, data=_df, title=title, xlab=xlab, x_rotate=True, order=order)
