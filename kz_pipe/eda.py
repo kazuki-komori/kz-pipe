@@ -3,6 +3,7 @@ from matplotlib_venn import venn2
 import matplotlib.pyplot as plt
 import seaborn as sns
 from .shaper import str_by_age
+from typing import Tuple
 
 def plt_count(
   col: str, 
@@ -12,7 +13,7 @@ def plt_count(
   x_rotate: bool = False, 
   order: bool = True, 
   ann: bool = True,
-  figsize: tuple(int, int) = (10, 6)
+  figsize: Tuple[int, int] = (10, 6)
   ):
   """Create Count plot from DataFrame.
 
@@ -24,7 +25,7 @@ def plt_count(
       x_rotate (bool, optional): xlab Rotate Defaults to False.
       order (bool, optional): order Defaults to True.
       ann (bool, optional): annotate Defaults to True.
-      figsize (tuple(int, int), optional): figsize Defaults to (10, 6).
+      figsize (Tuple[int, int], optional): figsize Defaults to (10, 6).
   """
   _order = None
 
@@ -83,7 +84,7 @@ def plt_by_age(
   title: str = "", 
   xlab: str = "", 
   order: bool = False,
-  figsize: tuple(int, int) = (10, 6)
+  figsize: Tuple[int, int] = (10, 6)
   ):
   """Create Count plot from Stratified by Age
 
@@ -97,7 +98,7 @@ def plt_by_age(
       title (str, optional): _description_. Defaults to "".
       xlab (str, optional): _description_. Defaults to "".
       order (bool, optional): _description_. Defaults to False.
-      figsize (tuple(int, int), optional): figsize Defaults to (10, 6).
+      figsize (Tuple[int, int], optional): figsize Defaults to (10, 6).
   """
   _df = str_by_age(df, col, min_age, max_age, by, fill)
   plt_count(col, data=_df, title=title, xlab=xlab, x_rotate=True, order=order, figsize=figsize)
