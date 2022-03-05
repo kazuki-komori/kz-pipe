@@ -50,6 +50,7 @@ def plt_count(
 def plt_venn(
   _df_1: pd.Series,  
   _df_2: pd.Series, 
+  ax: any,
   left_filter: any = 1,
   right_filter: any = 1,
   title: str = "",
@@ -69,9 +70,11 @@ def plt_venn(
   """
   venn2(
     subsets=[set(_df_1[_df_1 == left_filter].index), set(_df_2[_df_2 == right_filter].index)],
-    set_labels=(left_lab, right_lab)
+    set_labels=(left_lab, right_lab),
+    ax=ax
   )
   plt.title(title)
+  plt.show()
 
 
 def plt_by_age(
