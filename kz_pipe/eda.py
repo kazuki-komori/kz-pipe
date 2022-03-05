@@ -13,7 +13,7 @@ def plt_count(
   x_rotate: bool = False, 
   order: bool = True, 
   ann: bool = True,
-  figsize: Tuple[int, int] = (10, 6)
+  figsize: Tuple[int, int] = (6, 4)
   ):
   """Create Count plot from DataFrame.
 
@@ -84,7 +84,7 @@ def plt_by_age(
   title: str = "", 
   xlab: str = "", 
   order: bool = False,
-  figsize: Tuple[int, int] = (10, 6)
+  figsize: Tuple[int, int] = (6, 4)
   ):
   """Create Count plot from Stratified by Age
 
