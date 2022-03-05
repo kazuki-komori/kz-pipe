@@ -8,7 +8,12 @@ This code mainly come from my data analysis competitions often uses.
 If you want to extend functions, please give Pull Requests!! 
 </p>
 
-## Setup
+## Install
+```bash
+$ pip install git+https://github.com/kazuki-komori/kz-pipe.git
+```
+
+## Develop
 
 ```bash
 $ docker-compose up
