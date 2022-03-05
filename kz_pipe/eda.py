@@ -2,9 +2,16 @@ import pandas as pd
 from matplotlib_venn import venn2
 import matplotlib.pyplot as plt
 import seaborn as sns
-from typing import Union
 
-def plt_count(col: str, data: Union[pd.DataFrame, pd.Series], title: str = "", xlab: str = ""):
+def plt_count(col: str, data: pd.DataFrame, title: str = "", xlab: str = ""):
+  """Create Count plot from DataFrame.
+
+  Args:
+      col (str): col name
+      data (pd.DataFrame): dataFrame
+      title (str, optional): title Defaults to "".
+      xlab (str, optional): xlab Defaults to "".
+  """
   ax = sns.countplot(x=col ,data=data)
   plt.title(title)
   plt.xlabel(xlab)
