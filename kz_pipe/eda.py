@@ -71,7 +71,7 @@ def plt_venn(
     set_labels=(left_lab, right_lab),
     ax=ax
   )
-  plt.title(title)
+  ax.set_title(title)
 
 
 def plt_by_age(
