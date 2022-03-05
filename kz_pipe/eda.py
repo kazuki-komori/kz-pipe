@@ -71,6 +71,7 @@ def plt_venn(
     set_labels=(left_lab, right_lab),
     ax=ax
   )
+  plt.subplots_adjust(wspace=0.4, hspace=0.5)
   ax.set_title(title)
 
 
