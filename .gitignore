@@ -8,6 +8,7 @@
 ## cache
 .cache
 .bash_history
+.python_history
 
 ## git
 .gitconfig
