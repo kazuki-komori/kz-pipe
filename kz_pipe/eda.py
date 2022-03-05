@@ -28,11 +28,12 @@ def plt_count(
       figsize (Tuple[int, int], optional): figsize Defaults to (10, 6).
   """
   _order = None
+  fig, ax = plt.subplots(figsize=figsize)
 
   if order:
     _order = data[col].value_counts().index
   
-  ax = sns.countplot(x=col ,data=data, order = _order)
+  sns.countplot(x=col ,data=data, order = _order, ax=ax)
   plt.title(title)
   plt.xlabel(xlab)
   if ann:
@@ -42,7 +43,6 @@ def plt_count(
   if x_rotate:
     ax.set_xticklabels(ax.get_xticklabels(),rotation = 30)
   
-  plt.figure(figsize=figsize)
   
   plt.show()
 
