@@ -3,7 +3,6 @@ from matplotlib_venn import venn2
 import matplotlib.pyplot as plt
 import seaborn as sns
 from .shaper import str_by_age
-from typing import Tuple
 
 def plt_count(
   col: str, 
@@ -13,7 +12,7 @@ def plt_count(
   x_rotate: bool = False, 
   order: bool = True, 
   ann: bool = True,
-  figsize: Tuple[int, int] = (6, 4)
+  ax: plt.Axes = None
   ):
   """Create Count plot from DataFrame.
 
@@ -28,12 +27,12 @@ def plt_count(
       figsize (Tuple[int, int], optional): figsize Defaults to (10, 6).
   """
   _order = None
-  fig, ax = plt.subplots(figsize=figsize)
 
   if order:
     _order = data[col].value_counts().index
   
   sns.countplot(x=col ,data=data, order = _order, ax=ax)
+  plt.subplots_adjust(wspace=0.4, hspace=0.5)
   plt.title(title)
   plt.xlabel(xlab)
   if ann:
@@ -53,7 +52,7 @@ def plt_venn(
   title: str = "",
   left_lab: str = "A",
   right_lab: str = "B",
-  ax: any = None,
+  ax: plt.Axes = None,
   ):
   """Create Venn Diagrams from 2 Series.
 
@@ -66,13 +65,13 @@ def plt_venn(
       left_lab (str, optional): label1. Defaults to A.
       right_lab (str, optional): label2. Defaults to B.
   """
+  ax.set_title(title)
+  plt.subplots_adjust(wspace=0.4, hspace=0.6)
   venn2(
     subsets=[set(_df_1[_df_1 == left_filter].index), set(_df_2[_df_2 == right_filter].index)],
     set_labels=(left_lab, right_lab),
     ax=ax
   )
-  plt.subplots_adjust(wspace=0.4, hspace=0.5)
-  ax.set_title(title)
 
 
 def plt_by_age(
@@ -85,7 +84,7 @@ def plt_by_age(
   title: str = "", 
   xlab: str = "", 
   order: bool = False,
-  figsize: Tuple[int, int] = (6, 4)
+  ax: plt.Axes = None
   ):
   """Create Count plot from Stratified by Age
 
@@ -102,4 +101,4 @@ def plt_by_age(
       figsize (Tuple[int, int], optional): figsize Defaults to (10, 6).
   """
   _df = str_by_age(df, col, min_age, max_age, by, fill)
-  plt_count(col, data=_df, title=title, xlab=xlab, x_rotate=True, order=order, figsize=figsize)
+  plt_count(col, data=_df, title=title, xlab=xlab, x_rotate=True, order=order, ax=ax)
